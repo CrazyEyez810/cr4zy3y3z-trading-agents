@@ -1,11 +1,11 @@
 """
-🌙 Moon Dev's BMAD Master Trading Agent
-Built with love by Moon Dev 🚀
+🚀 Master Trading Agent
+Built with love by  🚀
 
-BMAD = Breakthrough Method for Agile AI Driven Development
+Multi-agent orchestration system
 Applied to trading: Multi-agent orchestration for intelligent trading decisions
 
-This agent orchestrates multiple specialized agents through 4 BMAD phases:
+This agent orchestrates multiple specialized agents through 4  phases:
 1. Analysis Phase - Gather market intelligence from all agents
 2. Planning Phase - Create trading plan based on agent consensus
 3. Solutioning Phase - Determine optimal entry/exit strategy
@@ -81,12 +81,12 @@ from src.models import model_factory
 from src import config
 
 # ============================================================================
-# BMAD MASTER AGENT
+#  MASTER AGENT
 # ============================================================================
 
-class BMADMasterAgent(BaseAgent):
+class MasterAgent(BaseAgent):
     """
-    🎯 BMAD Master Trading Agent
+    🎯 Master Trading Agent
 
     Orchestrates multiple specialized agents through 4 phases:
     - Phase 1: Analysis (gather intelligence)
@@ -96,8 +96,8 @@ class BMADMasterAgent(BaseAgent):
     """
 
     def __init__(self):
-        """Initialize the BMAD Master Agent"""
-        super().__init__('bmad_master')
+        """Initialize the Master Agent"""
+        super().__init__('_master')
 
         load_dotenv()
 
@@ -118,7 +118,7 @@ class BMADMasterAgent(BaseAgent):
                 cprint("⚠️ OPENAI_KEY not found - voice disabled", "yellow")
 
         # Setup directories
-        self.data_dir = PROJECT_ROOT / "src" / "data" / "bmad_master"
+        self.data_dir = PROJECT_ROOT / "src" / "data" / "master"
         self.audio_dir = PROJECT_ROOT / "src" / "audio"
         self.data_dir.mkdir(parents=True, exist_ok=True)
         self.audio_dir.mkdir(parents=True, exist_ok=True)
@@ -137,11 +137,11 @@ class BMADMasterAgent(BaseAgent):
         self.last_trade_time = None
 
         # Load or initialize state
-        self.state_file = self.data_dir / "bmad_state.json"
+        self.state_file = self.data_dir / "state.json"
         self.load_state()
 
         cprint("\n" + "="*60, "cyan")
-        cprint("🚀 BMAD Master Trading Agent Initialized!", "green", attrs=["bold"])
+        cprint("🚀 Master Trading Agent Initialized!", "green", attrs=["bold"])
         cprint("="*60, "cyan")
         cprint(f"💰 Capital: ${self.capital:.2f}", "white")
         cprint(f"🎯 Monthly Target: {TARGET_MONTHLY_RETURN*100}% (${self.capital * TARGET_MONTHLY_RETURN:.2f})", "white")
@@ -195,7 +195,7 @@ class BMADMasterAgent(BaseAgent):
             )
 
             # Save and play audio
-            audio_file = self.audio_dir / f"bmad_{int(time.time())}.mp3"
+            audio_file = self.audio_dir / f"master_{int(time.time())}.mp3"
             response.stream_to_file(str(audio_file))
 
             # Play audio (macOS)
@@ -211,7 +211,7 @@ class BMADMasterAgent(BaseAgent):
     def cleanup_audio(self):
         """Remove old audio files (keep last 10)"""
         try:
-            audio_files = sorted(self.audio_dir.glob("bmad_*.mp3"))
+            audio_files = sorted(self.audio_dir.glob("master_*.mp3"))
             if len(audio_files) > 10:
                 for f in audio_files[:-10]:
                     f.unlink()
@@ -472,7 +472,7 @@ class BMADMasterAgent(BaseAgent):
         self.save_state()
 
         # Announce
-        message = f"BMAD Master: {solution['signal']} signal with {solution['confidence']:.0f}% confidence. Position size: ${solution['position_size_usd']:.2f}"
+        message = f"Master: {solution['signal']} signal with {solution['confidence']:.0f}% confidence. Position size: ${solution['position_size_usd']:.2f}"
         self.announce(message, is_important=True)
 
         cprint("\n✅ Trade recorded!", "green")
@@ -484,10 +484,10 @@ class BMADMasterAgent(BaseAgent):
 
     def run(self):
         """
-        Main run loop - executes all 4 BMAD phases
+        Main run loop - executes all 4  phases
         """
         cprint("\n" + "="*60, "green")
-        cprint("🚀 BMAD MASTER AGENT - STARTING RUN CYCLE", "green", attrs=["bold"])
+        cprint("🚀  MASTER AGENT - STARTING RUN CYCLE", "green", attrs=["bold"])
         cprint("="*60, "green")
 
         try:
@@ -504,13 +504,13 @@ class BMADMasterAgent(BaseAgent):
             result = self.phase_4_implementation(solution)
 
             cprint("\n" + "="*60, "green")
-            cprint("✅ BMAD CYCLE COMPLETE", "green", attrs=["bold"])
+            cprint("✅  CYCLE COMPLETE", "green", attrs=["bold"])
             cprint("="*60, "green")
 
             return result
 
         except Exception as e:
-            cprint(f"\n❌ Error in BMAD cycle: {e}", "red")
+            cprint(f"\n❌ Error in  cycle: {e}", "red")
             import traceback
             traceback.print_exc()
             return False
@@ -522,15 +522,15 @@ class BMADMasterAgent(BaseAgent):
 def main():
     """Main execution function"""
     cprint("\n" + "="*80, "cyan", attrs=["bold"])
-    cprint(" "*20 + "🌙 BMAD MASTER TRADING AGENT 🚀", "cyan", attrs=["bold"])
+    cprint(" "*20 + "🚀  MASTER TRADING AGENT 🚀", "cyan", attrs=["bold"])
     cprint("="*80 + "\n", "cyan", attrs=["bold"])
 
     try:
         # Initialize agent
-        agent = BMADMasterAgent()
+        agent = MasterAgent()
 
         # Run one cycle
-        cprint("\n🎯 Running single BMAD cycle...\n", "yellow")
+        cprint("\n🎯 Running single  cycle...\n", "yellow")
         agent.run()
 
         # TODO: Add continuous loop with CHECK_INTERVAL_MINUTES
@@ -539,7 +539,7 @@ def main():
         #     time.sleep(CHECK_INTERVAL_MINUTES * 60)
 
     except KeyboardInterrupt:
-        cprint("\n\n👋 BMAD Master Agent stopped by user", "yellow")
+        cprint("\n\n👋 Master Agent stopped by user", "yellow")
     except Exception as e:
         cprint(f"\n\n❌ Fatal error: {e}", "red")
         import traceback

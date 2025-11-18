@@ -1,13 +1,13 @@
-# 🌙 BMAD Trading Agents - Complete Guide
+# 🚀 Trading Agents - Complete Guide
 
-## 🚀 What You Now Have
+## 🎯 What You Now Have
 
-I've created a complete BMAD (Breakthrough Method for Agile AI Driven Development) trading system for you with **two main components**:
+A complete AI-driven trading system with **two main components**:
 
-### 1. **BMAD Master Agent** (`src/agents/bmad_master_agent.py`)
-A sophisticated multi-agent orchestrator that coordinates your existing trading agents through 4 BMAD phases.
+### 1. **Master Agent** (`src/agents/master_agent.py`)
+A sophisticated multi-agent orchestrator that coordinates your existing trading agents through 4 phases.
 
-### 2. **BMAD Beginner Strategy** (`src/strategies/bmad_beginner_strategy.py`)
+### 2. **Beginner Strategy** (`src/strategies/beginner_strategy.py`)
 A simple, safe $100 trading strategy perfect for beginners with strict risk management.
 
 ---
@@ -16,7 +16,7 @@ A simple, safe $100 trading strategy perfect for beginners with strict risk mana
 
 ### Run the Beginner Strategy:
 ```bash
-python src/strategies/bmad_beginner_strategy.py
+python src/strategies/beginner_strategy.py
 ```
 
 ### What It Does:
@@ -28,7 +28,7 @@ python src/strategies/bmad_beginner_strategy.py
 - ✅ Maximum 2 trades per day
 
 ### Configuration:
-All settings are in the top of `bmad_beginner_strategy.py`:
+All settings are in the top of `beginner_strategy.py`:
 - `STARTING_CAPITAL = 100.00` - Your starting balance
 - `RISK_PER_TRADE = 0.02` - Risk 2% per trade
 - `TARGET_MONTHLY_RETURN = 0.025` - 2.5% monthly target
@@ -36,9 +36,9 @@ All settings are in the top of `bmad_beginner_strategy.py`:
 
 ---
 
-## 🎯 BMAD Master Agent Architecture
+## 🎯 Master Agent Architecture
 
-### The 4 BMAD Phases:
+### The 4 Phases:
 
 #### **Phase 1: Analysis** 📊
 Gathers intelligence from multiple specialized agents:
@@ -66,11 +66,11 @@ Executes and monitors trades:
 
 ### Run the Master Agent:
 ```bash
-python src/agents/bmad_master_agent.py
+python src/agents/master_agent.py
 ```
 
 ### Configuration:
-Edit these settings in `bmad_master_agent.py`:
+Edit these settings in `master_agent.py`:
 ```python
 # Capital Settings
 INITIAL_CAPITAL = 100
@@ -163,7 +163,7 @@ Potential Profit = 0.004 × $1,250 = $5
 
 ## 📊 Your Existing Backtests
 
-I analyzed your 19 finalized strategies in `src/data/rbi/backtests_final/`:
+Analysis of your 19 finalized strategies in `src/data/rbi/backtests_final/`:
 
 ### Top Strategies by Approach:
 
@@ -227,7 +227,7 @@ current_price = ticker['last']
 
 ### Change the Token:
 ```python
-# In bmad_beginner_strategy.py
+# In beginner_strategy.py
 TOKEN_SYMBOL = 'ETH'  # Trade Ethereum instead
 TOKEN_NAME = 'Ethereum'
 ```
@@ -246,7 +246,7 @@ MAX_MONTHLY_RETURN = 0.08  # Higher to 8%
 
 ### Add More Agents to Master:
 ```python
-# In bmad_master_agent.py
+# In master_agent.py
 ENABLED_AGENTS = {
     'sentiment': True,
     'funding': True,
@@ -310,24 +310,24 @@ ENABLED_AGENTS = {
 cr4zy3y3z-trading-agents/
 ├── src/
 │   ├── agents/
-│   │   ├── bmad_master_agent.py       # 🎯 Master orchestrator
+│   │   ├── master_agent.py            # 🎯 Master orchestrator
 │   │   ├── sentiment_agent.py         # Twitter sentiment
 │   │   ├── funding_agent.py           # Funding rates
 │   │   ├── risk_agent.py              # Risk management
 │   │   └── ...                        # Your other 18 agents
 │   ├── strategies/
-│   │   └── bmad_beginner_strategy.py  # 💡 $100 beginner strategy
+│   │   └── beginner_strategy.py       # 💡 $100 beginner strategy
 │   ├── data/
-│   │   ├── bmad_master/               # Master agent data
-│   │   │   └── bmad_state.json       # Trading state
-│   │   ├── bmad_beginner/            # Beginner strategy data
-│   │   │   └── beginner_state.json   # Trading state
+│   │   ├── master/                    # Master agent data
+│   │   │   └── state.json             # Trading state
+│   │   ├── beginner/                  # Beginner strategy data
+│   │   │   └── beginner_state.json    # Trading state
 │   │   └── rbi/                       # Your backtest strategies
 │   │       ├── backtests_final/       # 19 finalized strategies
 │   │       └── research/              # Strategy research
 │   └── models/
 │       └── model_factory.py           # AI model management
-└── BMAD_AGENTS_README.md              # This file!
+└── TRADING_AGENTS_README.md           # This file!
 ```
 
 ---
@@ -335,7 +335,7 @@ cr4zy3y3z-trading-agents/
 ## 🎯 Summary
 
 ### What You Have:
-1. ✅ **BMAD Master Agent** - Multi-agent orchestration system
+1. ✅ **Master Agent** - Multi-agent orchestration system
 2. ✅ **Beginner Strategy** - Safe $100 trading framework
 3. ✅ **19 Backtested Strategies** - Proven approaches
 4. ✅ **Risk Management** - Protect your capital
@@ -363,13 +363,13 @@ Remember: **Slow and steady wins the race!** 🐢
 ```bash
 # Run the beginner strategy
 cd /home/user/cr4zy3y3z-trading-agents
-python src/strategies/bmad_beginner_strategy.py
+python src/strategies/beginner_strategy.py
 
 # Study the code
-cat src/strategies/bmad_beginner_strategy.py
+cat src/strategies/beginner_strategy.py
 
 # Run the master agent (when ready)
-python src/agents/bmad_master_agent.py
+python src/agents/master_agent.py
 ```
 
 ---
@@ -384,8 +384,8 @@ This is a complete trading framework, but it's just the beginning. The real lear
 
 **Remember:** This is educational - not financial advice. Always do your own research and only trade money you can afford to lose.
 
-Good luck, and happy trading! 🌙🚀
+Good luck, and happy trading! 🚀
 
 ---
 
-Built with ❤️ using the BMAD Method
+Built with ❤️ for algorithmic trading

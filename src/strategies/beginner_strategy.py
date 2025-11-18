@@ -1,6 +1,6 @@
 """
-🌙 Moon Dev's BMAD Beginner Strategy
-Built with love by Moon Dev 🚀
+🚀 Beginner Trading Strategy
+Built with love by  🚀
 
 SIMPLE $100 STRATEGY for Beginners
 Target: 2-5% monthly returns with strict risk management
@@ -56,7 +56,7 @@ from pathlib import Path
 # BEGINNER TRADING STRATEGY
 # ============================================================================
 
-class BMADBeginnerStrategy:
+class BeginnerStrategy:
     """
     Simple $100 Trading Strategy for Beginners
 
@@ -68,7 +68,7 @@ class BMADBeginnerStrategy:
         """Initialize the beginner strategy"""
 
         # Setup directories
-        self.data_dir = Path("src/data/bmad_beginner")
+        self.data_dir = Path("src/data/beginner")
         self.data_dir.mkdir(parents=True, exist_ok=True)
 
         # Trading state
@@ -87,7 +87,7 @@ class BMADBeginnerStrategy:
         self.load_state()
 
         print("\n" + "="*60)
-        print("🚀 BMAD Beginner Strategy Initialized!")
+        print("🚀  Beginner Strategy Initialized!")
         print("="*60)
         print(f"💰 Starting Capital: ${self.capital:.2f}")
         print(f"🎯 Monthly Target: {TARGET_MONTHLY_RETURN*100}% (${STARTING_CAPITAL * TARGET_MONTHLY_RETURN:.2f})")
@@ -315,7 +315,7 @@ def print_beginner_guide():
 
     guide = """
 ================================================================================
-    🌙 BMAD BEGINNER TRADING STRATEGY GUIDE 🚀
+    🚀  BEGINNER TRADING STRATEGY GUIDE 🚀
 ================================================================================
 
 📚 WHAT IS THIS STRATEGY?
@@ -390,7 +390,7 @@ def main():
     print_beginner_guide()
 
     # Initialize strategy
-    strategy = BMADBeginnerStrategy()
+    strategy = BeginnerStrategy()
 
     # Show current status
     strategy.get_status_report()
